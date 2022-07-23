@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: b5910454e29d03c499bab2678fbf4f94
   - enabled: 0
-    path: Assets/Scenes/PlayMenu.unity
+    path: 
     guid: ca84f4b5b128f2849b0d8f811f05eda1
   - enabled: 1
     path: Assets/Scenes/Stacks.unity
@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Queue.unity
     guid: a4044648094ae35469adb721cbd29891
+  - enabled: 1
+    path: Assets/Scenes/QueuesGameScene.unity
+    guid: 087df28c234dcea41a6b0689a2ecc25f
   m_configObjects: {}

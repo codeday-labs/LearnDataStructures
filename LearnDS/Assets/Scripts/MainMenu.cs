@@ -33,6 +33,11 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene(sceneID);
     }
+
+    public void QueueGame(int sceneID)
+    {
+        SceneManager.LoadScene(sceneID);
+    }
     /*public void QuitGame()
     {
         Debug.Log("QUIT");
