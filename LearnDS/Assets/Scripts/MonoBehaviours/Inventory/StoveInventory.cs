@@ -1,27 +1,23 @@
-
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.Collections;
 using System.Collections.Generic;
 
-public class Inventory : MonoBehaviour
+public class StoveInventory : MonoBehaviour
 {
     public GameObject slotPrefab;
 
-    public const int numSlots = 1;
+    public const int numSlots = 5;
 
-    
-
-    Image[] itemImages = new Image[numSlots];
-    Item[] items = new Item[numSlots];
-    GameObject[] slots = new GameObject[numSlots];
-
+    public Image[] itemImages = new Image[numSlots]; 
+    public Item[] items = new Item[numSlots];
+    public GameObject[] slots = new GameObject[numSlots];
 
     public void Start()
     {
         CreateSlots();
-        
+
     }
 
     public void CreateSlots()
@@ -40,19 +36,10 @@ public class Inventory : MonoBehaviour
     }
 
     public bool AddItem(Item itemToAdd)
-   
     {
+        Debug.Log("item to add " + itemToAdd.name); 
         for (int i = 0; i < items.Length; i++)
         {
-            if (items[i] != null && items[i].itemType == itemToAdd.itemType && itemToAdd.stackable == true)
-            {
-                // Adding to existing slot
-                items[i].quantity = items[i].quantity + 1;
-                Slot slotScript = slots[i].GetComponent<Slot>();
-                
-               
-                return true;
-            }
 
             if (items[i] == null)
             {
@@ -62,35 +49,21 @@ public class Inventory : MonoBehaviour
                 items[i].quantity = 1;
                 itemImages[i].sprite = itemToAdd.sprite;
                 itemImages[i].enabled = true;
-                 
+
                 return true;
             }
         }
         return false;
     }
 
-    public void RemoveItem()
+    public void GetItems()
     {
-        foreach (Item item in items)
+        int count = 0; 
+        while (items[count] != null)
         {
-            if (item != null)
-            {
-                item.quantity = 0;
-                itemImages[0].sprite = null; 
-                itemImages[0].enabled = false;
-                items[0].quantity = 0;
-                items[0] = null;
-                 
-                
-            }
+            Debug.Log("item in inventory " + items[count]);
+            count++; 
         }
     }
-
-    public Item[] GetItem()
-    {
-        return items;
-    }
-
-
 
 }

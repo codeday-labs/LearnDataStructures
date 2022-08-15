@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1569077c10e47e34682da3d3927cd301, type: 3}
-  m_Name: Heart
+  m_Script: {fileID: 11500000, guid: 974d265ac59a14b4db295786a65c3906, type: 3}
+  m_Name: Coin
   m_EditorClassIdentifier: 
-  objectName: heart
-  sprite: {fileID: -1237229931, guid: d29a4a99f8f0f4c449e0e1a228aecacc, type: 3}
+  objectName: coin
+  sprite: {fileID: -1224284278, guid: 87e939650c42d7f4983684837597b1f5, type: 3}
   quantity: 1
-  stackable: 0
-  itemType: 1
+  stackable: 1
+  itemType: 0

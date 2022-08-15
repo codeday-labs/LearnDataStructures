@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1569077c10e47e34682da3d3927cd301, type: 3}
-  m_Name: Coin
+  m_Script: {fileID: 11500000, guid: 974d265ac59a14b4db295786a65c3906, type: 3}
+  m_Name: Tomato
   m_EditorClassIdentifier: 
-  objectName: coin
-  sprite: {fileID: -1321188994, guid: d29a4a99f8f0f4c449e0e1a228aecacc, type: 3}
-  quantity: 0
-  stackable: 1
-  itemType: 0
+  objectName: tomato
+  sprite: {fileID: 21300112, guid: d59b1eba407ddf44fa3642eddb03004a, type: 3}
+  quantity: 1
+  stackable: 0
+  itemType: 1

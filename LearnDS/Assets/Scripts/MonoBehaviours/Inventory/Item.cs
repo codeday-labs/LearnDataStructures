@@ -14,7 +14,12 @@ public class Item : ScriptableObject {
     public enum ItemType
     {
         COIN,
-        HEALTH
+        TOMATO, 
+        PASTA, 
+        ONION, 
+        CHICKEN, 
+        BEEF
+
     }
 
     public ItemType itemType;
