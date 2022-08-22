@@ -9,7 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f34fe326cfce664fac4bbb3c77ddcac, type: 3}
-  m_Name: HitPoints
+  m_Script: {fileID: 11500000, guid: 974d265ac59a14b4db295786a65c3906, type: 3}
+  m_Name: Coin 1
   m_EditorClassIdentifier: 
-  value: 5
+  objectName: coin
+  sprite: {fileID: -1224284278, guid: 87e939650c42d7f4983684837597b1f5, type: 3}
+  quantity: 1
+  stackable: 0
+  itemType: 0
