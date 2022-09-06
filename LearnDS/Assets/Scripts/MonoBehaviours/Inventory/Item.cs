@@ -13,12 +13,7 @@ public class Item : ScriptableObject {
 
     public enum ItemType
     {
-        COIN,
-        TOMATO, 
-        PASTA, 
-        ONION, 
-        CHICKEN, 
-        BEEF
+        FOODITEM
 
     }
 

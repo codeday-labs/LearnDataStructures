@@ -9,6 +9,7 @@ public class Stove : Character
 
     public StoveInventory inventoryPrefab;
     public StoveInventory inventory;
+    int ItemsIntInventory = 0;
 
     void Start()
     {
@@ -22,40 +23,42 @@ public class Stove : Character
        
     }
 
-    //On hit Trigger to transfer items from player to Inventory
+ 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        //need to add checker for when items is already in inventory
         RecievePlayerItems(collision); 
     }
 
 
-    //Gets Item from player and stores in stove inventory 
+
     public void RecievePlayerItems(Collider2D collision)
     {
-        Debug.Log("Player hit me");
+        //Debug.Log("Player hit me");
         Player player = collision.gameObject.GetComponent<Player>();
         Item[] items = player.PassItem();
-
-        foreach (Item item in items)
-        {
-            if (item != null)
+         
+       
+            if (items[0] != null)
             {
-                Debug.Log("move " + item.name + " to stove");
-                inventory.AddItem(item);
+            inventory.AddItem(items[0]);
+                ItemsIntInventory++; 
                 player.inventory.RemoveItem();
             }
-            else
-            {
-                Debug.Log("null item");
-            }
+        
+        Debug.Log(ItemsIntInventory); 
+        if(ItemsIntInventory == 5)
+        {
+            player.stoveInventory = inventory;
+            //Players stove inventory full after last item added
+            //Debug.Log(player.CheckStoveInventory()); 
         }
-
-        inventory.GetItems();
-
     }
 
 
-  
+    public Item[] PassItem()
+    {
+        Item[] items = inventory.GetItems();
+        return items;
+    }
 
 }

@@ -1,27 +1,46 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
-using UnityEngine.UI; 
 
- 
 
 public class Player : Character
 {
     public Inventory inventoryPrefab;
     public Inventory inventory;
+    public TicketInventory ticketInventoryPrefab;
+    public TicketInventory ticket;
+    public StoveInventory stoveInventory;
+    TicketClass OrderOne = new TicketClass("Breakfast Burrito", "Onion", "Garlic", "Eggs", "Sausage", "Tortilla");
 
-    Stove stove; 
+    int orderIndex = 0; 
+    public int itemCount; 
+
 
     public void Start()
 	{
-      
         inventory = Instantiate(inventoryPrefab);
        
+        ticket = Instantiate(ticketInventoryPrefab); 
 	}
-
-    //Player collides with Consumable Item
-	void OnTriggerEnter2D(Collider2D collision)
+    
+    public void Update()
     {
-       PickUpGroundItem(collision);
+
+
+
+        CheckStoveAndTicket();
+       
+         
+
+
+    }
+    //Player collides with Consumable Item
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        PickUpGroundItem(collision);
+        
     }
 
 
@@ -37,40 +56,46 @@ public class Player : Character
 
                 switch (hitObject.itemType)
                 {
-                    case Item.ItemType.COIN:
+                     
+                    case Item.ItemType.FOODITEM:
+                        Debug.Log("hit FOODITEM");
                         shouldDisappear = inventory.AddItem(hitObject);
-
-                        print("hit coin");
+                        if (shouldDisappear)
+                        {
+                            collision.gameObject.SetActive(false);
+                        }
                         break;
-                    case Item.ItemType.TOMATO:
-                        shouldDisappear = inventory.AddItem(hitObject);
-
-                        print("hit Tomato");
-                        break;
-
                 }
-                if (shouldDisappear)
-                {
-                    collision.gameObject.SetActive(false);
-                }
+                
             }
         }
     }
 
     public Item[] PassItem()
     {
-        Item[] items = inventory.GetItem();
+        Item[] items = inventory.GetItems();
         return items;  
     }
 
-   public bool CheckStoveIsFull(Collider2D collision)
+
+    public bool CheckStoveAndTicket()
     {
-        //get stove items
-        //check if stove inventory is full
-        //
+        string[] ticketOrder = ticket.PassOrder(orderIndex);
+        Item[] stoveItems = stoveInventory.GetItems();
 
-
-
-        return true; 
+        for(int i = 0; i < ticketOrder.Length; i++)
+        {
+            Debug.Log(ticketOrder[i]+"(Clone)(Clone)" == stoveItems[i].name);
+            Debug.Log(ticketOrder[i] + " : " + stoveItems[i].name.ToString());
+             
+        }
+        return false;
     }
+
+     
+
+
+
+
+
 }
