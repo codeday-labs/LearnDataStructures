@@ -5,27 +5,13 @@ using UnityEngine.EventSystems;
 using System.Collections;
 using System.Collections.Generic;
 
-public class Inventory : MonoBehaviour
+public class Inventory : InventoryAbstract
 {
-    public GameObject slotPrefab;
 
-    public const int numSlots = 1;
-
-    
-
-    Image[] itemImages = new Image[numSlots];
-    Item[] items = new Item[numSlots];
-    GameObject[] slots = new GameObject[numSlots];
-
-
-    public void Start()
+    public override void CreateSlots()
     {
-        CreateSlots();
-        
-    }
+        numSlots = 1;
 
-    public void CreateSlots()
-    {
         if (slotPrefab != null)
         {
             for (int i = 0; i < numSlots; i++)
@@ -37,58 +23,6 @@ public class Inventory : MonoBehaviour
                 itemImages[i] = newSlot.transform.GetChild(1).GetComponent<Image>();
             }
         }
-    }
-
-    public bool AddItem(Item itemToAdd)
-   
-    {
-        for (int i = 0; i < items.Length; i++)
-        {
-            if (items[i] != null && items[i].itemType == itemToAdd.itemType && itemToAdd.stackable == true)
-            {
-                // Adding to existing slot
-                items[i].quantity = items[i].quantity + 1;
-                Slot slotScript = slots[i].GetComponent<Slot>();
-                
-               
-                return true;
-            }
-
-            if (items[i] == null)
-            {
-                // Adding to empty slot
-                // Copy item and add to inventory. Copying so we dont modify original Scriptable Object
-                items[i] = Instantiate(itemToAdd);
-                items[i].quantity = 1;
-                itemImages[i].sprite = itemToAdd.sprite;
-                itemImages[i].enabled = true;
-                 
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public void RemoveItem()
-    {
-        foreach (Item item in items)
-        {
-            if (item != null)
-            {
-                item.quantity = 0;
-                itemImages[0].sprite = null; 
-                itemImages[0].enabled = false;
-                items[0].quantity = 0;
-                items[0] = null;
-                 
-                
-            }
-        }
-    }
-
-    public Item[] GetItem()
-    {
-        return items;
     }
 
 

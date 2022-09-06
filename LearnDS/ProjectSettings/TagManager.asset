@@ -9,6 +9,8 @@ TagManager:
   - QueueC
   - Stove
   - TicketCanvas
+  - CounterTop
+  - IngredientText
   layers:
   - Default
   - TransparentFX

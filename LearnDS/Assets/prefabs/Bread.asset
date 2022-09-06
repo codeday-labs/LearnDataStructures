@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 974d265ac59a14b4db295786a65c3906, type: 3}
-  m_Name: Tomato
+  m_Name: Bread
   m_EditorClassIdentifier: 
-  objectName: tomato
-  sprite: {fileID: 1290052008, guid: bf566d9740669fa4baa9e24968e64612, type: 3}
-  quantity: 1
+  objectName: Garlic
+  sprite: {fileID: -1513631843, guid: 76dba124847da684392a6b2004078b2c, type: 3}
+  quantity: 0
   stackable: 0
   itemType: 0
