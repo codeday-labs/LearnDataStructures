@@ -77,14 +77,20 @@ public class Player : Character
         return items;  
     }
 
-
+    //think about name
+    //what is it doing? 
+    //name that would explain whats going on 
     public bool CheckStoveAndTicket()
     {
         string[] ticketOrder = ticket.PassOrder(orderIndex);
         Item[] stoveItems = stoveInventory.GetItems();
 
+        //if ticket.length == stove.length ? 
         for(int i = 0; i < ticketOrder.Length; i++)
         {
+            //handle null exception
+            //try catch: handle known exception
+            
             Debug.Log(ticketOrder[i]+"(Clone)(Clone)" == stoveItems[i].name);
             Debug.Log(ticketOrder[i] + " : " + stoveItems[i].name.ToString());
              
